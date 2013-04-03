@@ -7,6 +7,7 @@ class OBDInterface
     @baud = baud
     @nbits = nbits
     @stopb = stopb
+    @thread = nil
   end
 
   #opens the serial port connection
@@ -40,6 +41,17 @@ class OBDInterface
     @sp.readline
   end
 
+#  def process_messages callback
+#    @thread = Thread.new(self) do |obd|
+#        obd.connect
+#        msg = obd.read_message
+#        while msg do
+#          callback.process_message msg
+#          msg = obd.read_message
+#        end
+#        obd.disconnect
+#    end
+#  end
 
   private
   def write(message)
